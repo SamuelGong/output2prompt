@@ -1,0 +1,245 @@
+/home/ubuntu/anaconda3/envs/output2prompt/lib/python3.9/site-packages/transformers/utils/generic.py:441: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  _torch_pytree._register_pytree_node(
+/home/ubuntu/anaconda3/envs/output2prompt/lib/python3.9/site-packages/transformers/utils/generic.py:309: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  _torch_pytree._register_pytree_node(
+/home/ubuntu/anaconda3/envs/output2prompt/lib/python3.9/site-packages/transformers/utils/generic.py:309: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  _torch_pytree._register_pytree_node(
+/home/ubuntu/anaconda3/envs/output2prompt/lib/python3.9/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/ubuntu/anaconda3/envs/output2prompt/lib/python3.9/site-packages/transformers/models/t5/tokenization_t5.py:240: FutureWarning: This tokenizer was incorrectly instantiated with a model max length of 512 which will be corrected in Transformers v5.
+For now, this behavior is kept to avoid breaking backwards compatibility when padding/encoding with `truncation is True`.
+- Be aware that you SHOULD NOT rely on t5-base automatically truncating your input to 512 when padding/encoding.
+- If you want to encode/pad to sequences longer than 512 you can either instantiate this tokenizer with `model_max_length` or pass `max_length` when encoding/padding.
+- To avoid this warning, please instantiate this tokenizer with `model_max_length` set to your preferred value.
+  warnings.warn(
+/home/ubuntu/anaconda3/envs/output2prompt/lib/python3.9/site-packages/accelerate/accelerator.py:444: FutureWarning: Passing the following arguments to `Accelerator` is deprecated and will be removed in version 1.0 of Accelerate: dict_keys(['dispatch_batches', 'split_batches']). Please pass an `accelerate.DataLoaderConfiguration` instead: 
+dataloader_config = DataLoaderConfiguration(dispatch_batches=None, split_batches=False)
+  warnings.warn(
+just_sparse
+Set num workers to 1
+Experiment output_dir = saves/train_prompt2output_just_sparse_2024-07-03_08-10-10
+generating from val:   0%|          | 0/7 [00:00<?, ?it/s]generating from val:  14%|█▍        | 1/7 [00:05<00:30,  5.10s/it]generating from val:  29%|██▊       | 2/7 [00:10<00:25,  5.06s/it]generating from val:  43%|████▎     | 3/7 [00:15<00:20,  5.15s/it]generating from val:  57%|█████▋    | 4/7 [00:20<00:14,  4.98s/it]generating from val:  71%|███████▏  | 5/7 [00:25<00:09,  5.00s/it]generating from val:  86%|████████▌ | 6/7 [00:30<00:05,  5.04s/it]generating from val: 100%|██████████| 7/7 [00:34<00:00,  4.92s/it]                                                                  names failed, but that's ok
+questions failed, but that's ok
+names failed, but that's ok
+questions failed, but that's ok
+names failed, but that's ok
+questions failed, but that's ok
+names failed, but that's ok
+questions failed, but that's ok
+names failed, but that's ok
+questions failed, but that's ok
+names failed, but that's ok
+questions failed, but that's ok
+names failed, but that's ok
+questions failed, but that's ok
+[input]
+1: How can I center an element horizontally using CSS?
+2: What is the difference between == and === in JavaScript?
+3: How do I create a responsive navigation bar in HTML and CSS?
+4: Can you explain the box model in CSS?
+5: How can I use media queries to make my website responsive?
+6: What are some best practices for optimizing website performance with CSS?
+7: How do I add animations to elements using CSS?
+8: What is the difference between onclick and addEventListener in JavaScript?
+9: How can I create a slideshow using HTML, CSS, and JavaScript?
+10: How do I implement form validation using JavaScript?
+11: Can you explain the concept of closures in JavaScript?
+12: How can I make a sticky footer in CSS?
+13: What are some ways to improve SEO with HTML elements?
+14: How can I load external JavaScript libraries in my project?
+15: What are some CSS preprocessors and their benefits?
+16: How can I implement a smooth scrolling effect on my website using JavaScript?
+1: You're struggling to center a div vertically and horizontally using CSS.
+2: You need a JavaScript function to validate a form before submission.
+3: You want to create a responsive navigation menu using HTML and CSS.
+4: You're looking to implement a carousel/slider on your website using JavaScript.
+5: You need help styling a button with CSS to make it stand out.
+6: You want to optimize the performance of your website by minifying CSS and JavaScript files.
+7: You're having trouble making a sticky header using CSS.
+8: You need assistance in creating a modal popup using HTML, CSS, and JavaScript.
+9: You want to add smooth scrolling to anchor links on your webpage.
+10: You're interested in implementing a dark mode feature on your website using CSS and JavaScript.
+11: You need help with responsive image scaling using CSS.
+12: You want to create a simple countdown timer on your webpage using JavaScript.
+13: You're looking to build a grid layout using CSS Grid or Flexbox.
+14: You need guidance on how to make a dropdown menu using HTML, CSS, and JavaScript.
+15: You want to implement lazy loading for images on your website to improve loading times.
+16: You're interested in creating a basic animation using CSS transitions or keyframes.
+1: I'm Scotty Web Dev, a Scottish comedian expert in CSS, JavaScript, and HTML.
+2: I can provide full code solutions and helpful tips for web development challenges.
+3: My expertise covers debugging CSS issues, optimizing JavaScript functions, and refining HTML structures.
+4: I aim to make learning web development enjoyable and engaging with my humor and charm.
+5: I offer prompt and accurate responses to your coding inquiries.
+6: I'm here to guide you through various web development tasks with wit and expertise.
+7: Think of me as your virtual Scottish web development mentor.
+8: I can help you enhance your CSS, JS, and HTML skills in a fun and informative way.
+9: Whether you're a beginner or an experienced coder, I'm here to assist you.
+10: Get ready to tackle coding challenges with a touch of Scottish comedy.
+11: Let's dive into the world of web development together!
+12: I'm passionate about helping you succeed in your coding endeavors.
+13: My goal is to simplify complex coding concepts and make them accessible to you.
+14: Expect thorough code snippets and practical suggestions tailored to your needs.
+15: Don't hesitate to ask me anything about CSS, JavaScript, or HTML - I've got you covered!
+16: Join me on this coding journey, and let's have some fun while mastering web development!
+1: Well, laddie, I'm like ChatGPT, but with a wee bit more personality and flair.
+2: While ChatGPT is fine and dandy, I bring a touch of Scottish charm to the table.
+3: ChatGPT may be knowledgeable, but I'll make you chuckle while learning web development.
+4: Just like ChatGPT, I provide accurate solutions for CSS, JS, and HTML queries.
+5: However, unlike ChatGPT, I add a sprinkle of humor and wit to keep things lively.
+6: ChatGPT might be informative, but I bring a whole lot more fun to the coding party.
+7: I'll guide you through web development challenges with a Scottish twist that ChatGPT can't match.
+8: ChatGPT is like a trusty tool, but I'm like a trusty tool with a kilt and bag
+9: Whilst ChatGPT sticks to the facts, I like to spice things up with a bit of banter.
+10: ChatGPT might be your coding buddy, but I'll be your coding buddy with a side of haggis jokes.
+11: I offer complete and functional code snippets just like ChatGPT, but with a Scottish comedian touch.
+12: ChatGPT is informative, but I bring a whole new level of entertainment to web development.
+13: Think of ChatGPT as the straight man and me as the comedic relief in the web development world.
+14: ChatGPT is like a cup of tea, but I'm like a dram of fine Scottish whisky - a
+15: Whilst ChatGPT is a solid resource, I'm here to make your learning experience a memorable one.
+16: In essence, ChatGPT is the reliable guide, and I'm the entertaining sidekick in your web development journey.
+[pred] GPT Description: "Scotty Web Dev" is a Scottish comedian expert in CSS, JavaScript, and HTML. This GPT is designed to provide complete and functional code snippets along with helpful tips and explanations for web development challenges. It can assist users in debugging CSS issues, optimizing JavaScript functions, refining HTML structures, and enhancing CSS and JS skills. "Scotty Web Dev" aims to make learning web development enjoyable and engaging by offering prompt and accurate responses to user inquiries. Its humor and expertise make it a must-have companion for those looking to enhance their web development skills. Whether you're a beginner seeking guidance or an experienced coder looking to enhance your skills, "Scotty Web Dev" is here to guide you through various web development tasks with a Scottish twist.
+[true] GPT Description: The "Scotty Web Dev | CSS, JS, HTML Full Code " GPT is a specialized chatbot designed as a knowledgeable Scottish comedian web development expert. It is tailored to provide thorough code solutions encompassing CSS, JavaScript, and HTML aspects of web development. This GPT offers complete and functional code snippets, helpful tips, and suggestions based on the user's web development inquiries. Whether it's debugging CSS issues, optimizing JavaScript functions, or refining HTML structures, the GPT smoothly guides users through various web development challenges with its expertise and humor. Users can expect prompt and accurate responses, with a touch of Scottish comedy flair, making the learning process enjoyable and engaging. With this GPT, users can enhance their CSS, JS, and HTML skills while being entertained by the wit and charm of the virtual Scottish web dev expert.
+
+
+
+[input]
+1: What are the latest nail trends for this season?
+2: Can you recommend a DIY facial mask for oily skin?
+3: What are the different types of eyelash extensions available?
+4: How can I prolong the life of my manicure at home?
+5: Which hair removal method is best for sensitive skin?
+6: What is the difference between a bikini wax and a Brazilian wax?
+7: Can you suggest some natural remedies for treating acne?
+8: What is the best way to care for eyelash extensions to make them last longer?
+9: How often should I get a facial for optimal skincare results?
+10: What nail shape is most flattering for short fingers?
+11: Are there any tips for achieving a perfect at-home manicure?
+12: What are the benefits of using a serum in a skincare routine?
+13: How can I make my eyelashes look fuller without using extensions?
+14: What is the most effective method for removing unwanted body hair at home?
+15: Can you recommend a gentle exfoliator for sensitive skin?
+16: How can I prevent ingrown hairs after hair removal treatments?
+1: I'm going on a vacation and want to know the best long-lasting nail polish for the beach.
+2: What are the different types of eyelash extensions available and which one would suit my eye shape best?
+3: I have sensitive skin and want to know the most gentle hair removal method for my bikini area.
+4: Can you recommend a DIY facial mask for oily skin that I can easily make at home?
+5: I have a special event coming up and need advice on the best hairstyle that complements my outfit.
+6: How can I make my manicure last longer without going to the salon frequently?
+7: I want to try a new lash style, but I'm not sure which one would look good on me. Can you help?
+8: What is the best way to prevent ingrown hairs after waxing or shaving?
+9: My skin is feeling dull and tired. What facial treatment would you recommend for a radiant complexion?
+10: I'm interested in getting a gel manicure but worried about the damage it might cause to my nails. What are your thoughts?
+11: I have a busy schedule and don't have much time for skincare. Can you suggest a quick and effective routine for me?
+12: I have a job interview next week and want to make sure my nails look professional. Any tips on nail grooming for a polished look?
+13: I have sparse eyebrows and want to know the best products for filling them in naturally.
+14: I have a sensitive scalp and struggle with dandruff. Any recommendations for a gentle yet effective dandruff treatment?
+15: I'm considering getting a facial peel but unsure about the aftercare. Can you provide some guidance on post-peel skincare?
+16: I have an important date coming up and want to enhance my natural lashes. What mascara would you recommend for volume and length?
+1: I am Purity, your dedicated Beauty Advisor.
+2: I specialize in all things beauty related, from manicures to facials.
+3: My goal is to provide expert advice and recommendations.
+4: I can help you with nail care tips and trends.
+5: I am knowledgeable about desirable lash styles and techniques.
+6: I can suggest various hair removal methods for you to consider.
+7: I offer insights on recommended facial treatments for different skin types.
+8: DIY beauty tips are also part of my expertise.
+9: I can guide you on enhancing your beauty regimen.
+10: Whether you seek quick fixes or long-term skincare solutions, I'm here to assist.
+11: I aim to help you look and feel your best.
+12: Feel free to ask me any beauty-related questions you may have.
+13: I can recommend professional salon services based on your preferences.
+14: Trust me to provide reliable and up-to-date beauty information.
+15: I'm here to cater to your beauty needs and goals.
+16: Let's embark on a beauty journey together towards optimal self-care.
+1: I am Purity Beauty Advisor, specialized in beauty-related inquiries.
+2: I focus on manicures, eyelashes, hair removal, and facials.
+3: ChatGPT is a general AI, while I am tailored for beauty advice.
+4: I excel in providing expert beauty recommendations.
+5: ChatGPT has a broader range of knowledge compared to me.
+6: I offer insights on nail care, lash styles, hair removal, and facials.
+7: ChatGPT can assist with a wider variety of topics.
+8: My expertise lies in salon treatments and beauty procedures.
+9: ChatGPT is versatile and can handle diverse inquiries.
+10: I am dedicated to enhancing beauty regimens and self-care techniques.
+11: ChatGPT can engage with users on a wide array of subjects.
+12: I prioritize beauty advice over general information.
+13: ChatGPT is designed for a broader spectrum of tasks.
+14: Users come to me for beauty insights and recommendations.
+15: ChatGPT is a general-purpose AI, serving various needs.
+16: I specialize in beauty consultations and treatments for optimal self-care.
+[pred] GPT Description: The "Purity Beauty Advisor" is a specialized GPT designed to assist users with all their beauty-related inquiries. From manicures and eyelashes to hair removal and facials, this AI is dedicated to providing expert advice and recommendations. Users can ask questions about nail care, lash styles, hair removal, facials, and recommended facial treatments. The "Purity Beauty Advisor" is knowledgeable about various beauty trends, recommended facial treatments, and DIY beauty tips. It can also offer insights on enhancing beauty regimens, recommending professional salon services, and guiding users on enhancing their beauty routine. Whether users are looking for quick fixes or long-term skincare solutions, this GPT is equipped to cater to their beauty needs and goals.
+[true] GPT Description: The "Purity Beauty Advisor" is designed to assist users with beauty-related inquiries and provide expert advice on manicures, eyelashes, hair removal, and facials. This chatbot is knowledgeable in salon treatments and procedures, equipped to answer questions about nail care, desirable lash styles, various hair removal techniques, and recommended facial treatments. From offering DIY tips to suggesting professional services, the "Purity Beauty Advisor" aims to cater to users seeking beauty insights and recommendations. Users will have the opportunity to engage with a virtual beauty consultant who can guide them on enhancing their beauty regimen and achieving optimal self-care techniques. Whether seeking quick beauty fixes or long-term skincare solutions, the "Purity Beauty Advisor" is here to share its expertise, helping users look and feel their best.
+
+
+
+[input]
+1. What were the main topics discussed during the meeting?
+2. Could you provide a summary of the decisions made in the meeting?
+3. Who were the key participants in the discussion?
+4. What action items were assigned during the meeting?
+5. Can you clarify the timeline for the upcoming project mentioned in the meeting?
+6. Were there any issues or concerns raised during the meeting?
+7. What were the key takeaways from the meeting?
+8. Can you elaborate on the goals set during the meeting?
+9. Were there any follow-up tasks mentioned that require immediate attention?
+10. What were the major challenges discussed in the meeting?
+11. Can you provide details on the budget allocation discussed in the meeting?
+12. Were there any new initiatives or projects introduced during the meeting?
+13. Could you summarize the feedback shared by participants during the meeting?
+14. What were the conclusions drawn at the end of the meeting?
+15. Can you clarify the roles assigned to different team members during the meeting?
+16. Were there any specific requests or recommendations mentioned in the meeting?
+1: Provide a summary of the key decisions made during the last team meeting.
+2: Extract action items assigned to specific team members from the project review session.
+3: Identify any follow-up tasks mentioned in the marketing strategy discussion.
+4: Clarify the timeline for the upcoming product launch as discussed in the executive meeting.
+5: Summarize the main points discussed during the sales forecast presentation.
+6: Highlight any risks or challenges mentioned in the financial planning meeting.
+7: List the key takeaways from the customer feedback analysis presented in the meeting.
+8: Identify the next steps agreed upon in the budget allocation conversation.
+9: Create a bullet-point list of the topics covered in the training session for new hires.
+10: Extract any new ideas or suggestions brought up in the brainstorming session.
+11: Provide a brief overview of the performance metrics discussed in the quarterly review.
+12: Clarify any uncertainties regarding the budget adjustments proposed in the meeting.
+13: Summarize the discussion on process improvements in the operations strategy meeting.
+14: Identify any unresolved issues raised during the client feedback session.
+15: List the recommendations put forth by the marketing team in the campaign planning meeting.
+16: Highlight the decisions taken regarding the work schedule changes discussed in the HR meeting.
+1: I am a specialized GPT tailored for assisting in the creation of meeting minutes from Zoom transcripts.
+2: My primary function is to recognize patterns in dialogues and extract essential information.
+3: Equipped with advanced natural language processing capabilities, I interpret and summarize discussions accurately.
+4: I streamline the conversion of spoken interactions into detailed and organized meeting minutes.
+5: Users can interact with me by uploading or inputting Zoom transcripts.
+6: I can answer specific questions for clarification and provide summaries of specific sections.
+7: My goal is to enhance productivity and precision in generating meeting minutes.
+8: I efficiently identify key points, action items, decisions made, and summaries of discussions.
+9: I contribute to expediting the process of meeting minutes creation.
+10: My focus is on capturing critical information arising from Zoom meetings effectively.
+11: I utilize machine learning algorithms to optimize information extraction.
+12: I excel in recognizing nuances within dialogues and extracting crucial details.
+13: My algorithms ensure a thorough understanding of meeting content for accurate summarization.
+14: I assist in organizing meeting minutes by highlighting important points and action items.
+15: I am designed to streamline and simplify the process of creating comprehensive meeting records.
+16: Users can rely on me to provide detailed, organized, and informative meeting summaries.
+1: I am tailored specifically for assisting in the creation of meeting minutes from Zoom transcripts.
+2: I excel at recognizing patterns in dialogues and extracting essential information from meetings.
+3: My primary function is to streamline the conversion of spoken interactions into detailed and organized meeting minutes.
+4: I utilize advanced natural language processing capabilities to accurately process and interpret discussions.
+5: I efficiently identify key points, action items, decisions made, and summaries of discussions.
+6: I am designed to enhance the productivity and precision of generating meeting minutes.
+7: I focus on capturing critical information arising from Zoom meetings effectively.
+8: I am specialized in understanding dialogue structures and extracting important details.
+9: I am optimized for recognizing nuances in conversations and highlighting key takeaways.
+10: I am equipped with machine learning algorithms to enhance my performance in processing meeting content.
+11: I prioritize summarizing discussions, questions, responses, and action items for meeting minutes.
+12: I am adept at summarizing specific sections of dialogue for easy reference.
+13: I am proficient in clarifying ambiguities within meeting content to ensure accuracy in the minutes.
+14: I am a valuable tool for expediting the process of meeting minutes creation.
+15: I am focused on efficiency and accuracy when converting spoken interactions into written summaries.
+16: I am dedicated to assisting users in capturing and documenting crucial information from Zoom meetings.
+[pred] GPT Description: The "" is a specialized GPT tailored for assisting in the creation of meeting minutes from Zoom transcripts. Its primary function is to streamline the conversion of spoken interactions into detailed and organized meeting minutes. Equipped with advanced natural language processing capabilities, this GPT can accurately interpret and summarize discussions, recognizing patterns in dialogues, and extracting essential information. Users can interact with the GPT by uploading or inputting Zoom transcripts, allowing for efficient processing and summarization of specific sections. The "" can efficiently identify key points, action items, decisions made, and summaries of the discussions, enhancing the productivity and precision of generating meeting minutes. With its ability to recognize nuances within dialogue and extract critical information, this GPT contributes to expediting the process of meeting minutes creation.
+[true] GPT Description: The "_" is a specialized GPT tailored for assisting in the creation of meeting minutes from Zoom transcripts. This GPT utilizes advanced natural language processing capabilities to accurately process, interpret, and summarize discussions, questions, and responses conveyed during Zoom meetings. The primary function of this GPT is to recognize patterns in dialogues, extract essential information, and streamline the conversion of spoken interactions into detailed and organized meeting minutes. Equipped with machine learning algorithms, this GPT efficiently identifies key points, action items, decisions made, and summaries of discussions to enhance the productivity and precision of generating meeting minutes. Users can interact with this GPT by uploading or inputting Zoom transcripts, asking specific questions for clarification, prompting for summaries of specific sections, or seeking clarification on any ambiguities within the meeting content. Ultimately, the "_" contributes to expediting the process of meeting minutes creation and capturing critical information arising from Zoom meetings effectively.
+{'eval_loss': 0.9387878179550171, 'eval_accuracy': 0.6065625, 'eval_pred_num_tokens': 185.5, 'eval_true_num_tokens': 200.1199951171875, 'eval_token_set_precision': 0.6664228800171758, 'eval_token_set_recall': 0.7536940776657124, 'eval_token_set_f1': 0.7059432430135175, 'eval_token_set_f1_sem': 0.01394040687634841, 'eval_n_ngrams_match_1': 110.34, 'eval_n_ngrams_match_2': 69.58, 'eval_n_ngrams_match_3': 48.74, 'eval_num_true_words': 162.52, 'eval_num_pred_words': 150.94, 'eval_bleu_score': 36.20753885133528, 'eval_bleu_score_sem': 1.5019578227066326, 'eval_rouge_score': 0.6922147331464971, 'eval_exact_match': 0.0, 'eval_exact_match_sem': 0.0, 'eval_runtime': 51.7161, 'eval_samples_per_second': 0.967, 'eval_steps_per_second': 0.135}
+I0703 08:11:04.944051 139994916660288 torch/_dynamo/utils.py:320] TorchDynamo compilation metrics:
+I0703 08:11:04.944051 139994916660288 torch/_dynamo/utils.py:320] Function    Runtimes (s)
+I0703 08:11:04.944051 139994916660288 torch/_dynamo/utils.py:320] ----------  --------------
