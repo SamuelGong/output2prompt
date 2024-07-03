@@ -53,7 +53,7 @@ def train(dataset_path):
     # Zhifeng: to avoid error: evaluation requires an eval_dataset.
     # config_dict['per_device_eval_batch_size'] = 8
     # config_dict['eval_steps'] = 500
-    config_dict['eval_strategy'] = "no"
+    config_dict['evaluation_strategy'] = "no"
     config_dict['experiment'] = 'inversion_from_output_sparse'
     config_dict["num_train_epochs"] = 1
     config_dict["warmup_steps"] = 0
