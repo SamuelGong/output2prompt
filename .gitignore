@@ -49,5 +49,6 @@ data_legacy
 saves
 .idea
 datasets
+inverters
 prompt2output.egg-info
 *.zip
