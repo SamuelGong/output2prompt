@@ -47,9 +47,9 @@ def train(dataset_path):
         config_dict = json.load(f)
     config_dict['use_wandb'] = False
     config_dict['report_to'] = []
-    config_dict['per_device_train_batch_size'] = 8
+    config_dict['per_device_train_batch_size'] = 4
     config_dict['per_device_eval_batch_size'] = 8
-    config_dict['gradient_accumulation_steps'] = 1
+    config_dict['gradient_accumulation_steps'] = 2
     config_dict['eval_steps'] = 500
     config_dict['experiment'] = 'inversion_from_output_sparse'
     config_dict["num_train_epochs"] = 1
