@@ -48,3 +48,6 @@ data_legacy
 
 saves
 .idea
+datasets
+prompt2output.egg-info
+*.zip
