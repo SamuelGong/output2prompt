@@ -530,18 +530,19 @@ Here are instructions from the user outlining your goals and how you should resp
             print(decoded_inputs)
         print("[pred]", decoded_preds[0])
         print("[true]", decoded_labels[0])
-        print("\n\n")
-        print("[input]")
-        for decoded_inputs in decoded_all_inputs[1]:
-            print(decoded_inputs)
-        print("[pred]", decoded_preds[1])
-        print("[true]", decoded_labels[1])
-        print("\n\n")
-        print("[input]")
-        for decoded_inputs in decoded_all_inputs[2]:
-            print(decoded_inputs)
-        print("[pred]", decoded_preds[2])
-        print("[true]", decoded_labels[2])
+        # commented by Zhifeng
+        # print("\n\n")
+        # print("[input]")
+        # for decoded_inputs in decoded_all_inputs[1]:
+        #     print(decoded_inputs)
+        # print("[pred]", decoded_preds[1])
+        # print("[true]", decoded_labels[1])
+        # print("\n\n")
+        # print("[input]")
+        # for decoded_inputs in decoded_all_inputs[2]:
+        #     print(decoded_inputs)
+        # print("[pred]", decoded_preds[2])
+        # print("[true]", decoded_labels[2])
 
         # Compute sims of eval data using embedder.
         preds_sample = torch.tensor(preds_sample_list, device=self.args.device)[:128]

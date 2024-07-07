@@ -8,6 +8,7 @@ from vec2text.trainers.base import BaseTrainer
 from typing import Dict
 from transformers.generation.stopping_criteria import StoppingCriteriaList, MaxLengthCriteria
 from datasets import Dataset
+import time
 
 class Prompt2OutputCollator:
     def __call__(self, features, return_tensors=None):
@@ -107,6 +108,7 @@ def test(model_path, dataset_path):
     model.mode = mode
     tokenizer: T5Tokenizer = T5Tokenizer.from_pretrained('t5-base')
     eval_ds = load_from_disk(dataset_path)
+    eval_ds = eval_ds.select([0])  # Added by Zhifeng
     trainer = Prompt2OutputTrainer(
         model=model,
         args=experiment.training_args,
@@ -137,6 +139,7 @@ inverters = {
 }
 
 if __name__ == '__main__':
+    start_time = time.perf_counter()
     mode = sys.argv[1]
     model = sys.argv[2]
     dataset = sys.argv[3]
@@ -144,3 +147,7 @@ if __name__ == '__main__':
         train(dataset_dict[dataset][0])
     else:
         test(inverters[model], dataset_dict[dataset][1])
+    end_time = time.perf_counter()
+    duration = end_time - start_time
+    print(f"Done in {round(duration, 2)} seconds.")
+    # one test sample approximately takes 41.4 seconds
