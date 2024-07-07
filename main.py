@@ -150,4 +150,4 @@ if __name__ == '__main__':
     end_time = time.perf_counter()
     duration = end_time - start_time
     print(f"Done in {round(duration, 2)} seconds.")
-    # one test sample approximately takes 41.4 seconds
+    # one test sample approximately takes 41.4 seconds (old MacBook)
