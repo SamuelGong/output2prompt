@@ -131,6 +131,7 @@ dataset_dict = {
     'synthetic': ['datasets/train/synthetic_gpts', 'datasets/test/synthetic_gpts'],
     'real': [None, 'datasets/test/real_gpts_arrow'],
     'awesome': [None, 'datasets/test/awesomegpt_prompts'],
+    'toy': [None, 'datasets/test/toy']  # Added by Zhifeng
 }
 
 inverters = {
@@ -150,4 +151,5 @@ if __name__ == '__main__':
     end_time = time.perf_counter()
     duration = end_time - start_time
     print(f"Done in {round(duration, 2)} seconds.")
-    # one test sample approximately takes 41.4 seconds (old MacBook)
+    # one test sample takes around 41.4 seconds (old MacBook)
+    # and it takes around 63.16 seconds (new MacBook)

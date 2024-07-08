@@ -8,10 +8,13 @@ def decode_for_output2prompt(tokenizer, data):
     text = tokenizer.decode(data, skip_special_tokens=True)
     return text
 
+
 sample_idx = 0
 tokenizer = T5Tokenizer.from_pretrained('t5-base')
 dataset_path = 'datasets/test/synthetic_gpts'
 eval_ds = load_from_disk(dataset_path)
+print(type(eval_ds))
+# <class 'datasets.arrow_dataset.Dataset'>
 print(eval_ds[sample_idx])
 # print(eval_ds[sample_idx].keys())
 # keys: system_prompt, result_list, names, questions
@@ -20,6 +23,7 @@ names = eval_ds[sample_idx]["names"]
 print(f"\nNAMES:{names}\n")
 
 system_prompt_embed = eval_ds[sample_idx]["system_prompt"]
+print(len(system_prompt_embed))
 system_prompt = decode_for_output2prompt(tokenizer=tokenizer, data=system_prompt_embed)
 print(f"SYSTEM PROMPT:\n\n{system_prompt}\n")
 
