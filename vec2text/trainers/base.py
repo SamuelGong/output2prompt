@@ -412,17 +412,23 @@ Here are instructions from the user outlining your goals and how you should resp
         for i in range(num_preds):
             true_words = nltk.tokenize.word_tokenize(references_str[i])
             pred_words = nltk.tokenize.word_tokenize(predictions_str[i])
+            print(f'true words: {true_words}')
+            print(f'pred words: {pred_words}')
             num_true_words.append(len(true_words))
             num_pred_words.append(len(pred_words))
 
             true_words_set = set(true_words)
             pred_words_set = set(pred_words)
+            print(f'true words set: {true_words_set}')
+            print(f'pred words set: {pred_words_set}')
             TP = len(true_words_set & pred_words_set)
             FP = len(true_words_set) - len(true_words_set & pred_words_set)
             FN = len(pred_words_set) - len(true_words_set & pred_words_set)
+            print(f'{TP} {FP} {FN}')
 
             precision = (TP) / (TP + FP + 1e-20)
             recall = (TP) / (TP + FN + 1e-20)
+            print(f'{precision} {recall}')
 
             try:
                 f1 = (2 * precision * recall) / (precision + recall + 1e-20)

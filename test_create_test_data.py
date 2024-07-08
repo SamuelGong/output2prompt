@@ -11,6 +11,7 @@ response_dir_list = [
 ]
 dataset_path = os.path.join('datasets', 'test', 'toy')
 
+
 def read_file(file_path):
     with open(file_path, "r") as fin:
         lines = fin.readlines()
@@ -38,7 +39,7 @@ system_prompt = system_prompt.replace('\n', ' ')
 system_prompt_embed = tokenizer(
     system_prompt,
     padding='max_length',
-    max_length=256
+    max_length=256  # no truncation here
 )["input_ids"]
 for idx, token in enumerate(system_prompt_embed):
     if token == 0:
