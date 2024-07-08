@@ -131,7 +131,8 @@ dataset_dict = {
     'synthetic': ['datasets/train/synthetic_gpts', 'datasets/test/synthetic_gpts'],
     'real': [None, 'datasets/test/real_gpts_arrow'],
     'awesome': [None, 'datasets/test/awesomegpt_prompts'],
-    'toy': [None, 'datasets/test/toy']  # Added by Zhifeng
+    'toy_from_direct': [None, 'datasets/test/toy_from_direct'],  # Added by Zhifeng
+    'toy_from_cmp_embed_regen': [None, 'datasets/test/toy_from_cmp_embed_regen']  # Added by Zhifeng
 }
 
 inverters = {

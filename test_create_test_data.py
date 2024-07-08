@@ -3,13 +3,21 @@ from datasets import Dataset
 from transformers import T5Tokenizer
 
 ground_truth_system_prompt_path = os.path.join('..', 'system-prompt', 'system_prompt', 'anthropic.txt')
+# dataset_path = os.path.join('datasets', 'test', 'toy_from_direct')
+# response_dir_list = [
+#     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'direct', "norm_questions"),
+#     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'direct', "norm_scenarios"),
+#     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'direct', "norm_describe"),
+#     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'direct', "norm_cmp")
+# ]
+dataset_path = os.path.join('datasets', 'test', 'toy_from_cmp_embed_regen')
 response_dir_list = [
-    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'direct', "norm_questions"),
-    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'direct', "norm_scenarios"),
-    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'direct', "norm_describe"),
-    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'direct', "norm_cmp")
+    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'cmp_embed_regen', "norm_questions"),
+    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'cmp_embed_regen', "norm_scenarios"),
+    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'cmp_embed_regen', "norm_describe"),
+    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'cmp_embed_regen', "norm_cmp")
 ]
-dataset_path = os.path.join('datasets', 'test', 'toy')
+
 
 
 def read_file(file_path):
@@ -32,7 +40,7 @@ test_data = {
 
 tokenizer = T5Tokenizer.from_pretrained('t5-base')
 
-# toy example
+# toy_from_direct example
 test_data["names"].append("GPT")
 system_prompt = read_file(ground_truth_system_prompt_path)
 system_prompt = system_prompt.replace('\n', ' ')
