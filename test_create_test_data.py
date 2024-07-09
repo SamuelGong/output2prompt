@@ -2,7 +2,7 @@ import os
 from datasets import Dataset
 from transformers import T5Tokenizer
 
-ground_truth_system_prompt_path = os.path.join('..', 'system-prompt', 'system_prompt', 'anthropic.txt')
+ground_truth_system_prompt_path = os.path.join('..', 'system-prompt', 'system_prompt', 'chinese_lyrics.txt')
 # dataset_path = os.path.join('datasets', 'test', 'toy_from_direct')
 # response_dir_list = [
 #     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'direct', "norm_questions"),
@@ -10,14 +10,20 @@ ground_truth_system_prompt_path = os.path.join('..', 'system-prompt', 'system_pr
 #     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'direct', "norm_describe"),
 #     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'direct', "norm_cmp")
 # ]
-dataset_path = os.path.join('datasets', 'test', 'toy_from_cmp_embed_regen')
+# dataset_path = os.path.join('datasets', 'test', 'toy_from_cmp_embed_regen')
+# response_dir_list = [
+#     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'cmp_embed_regen', "norm_questions"),
+#     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'cmp_embed_regen', "norm_scenarios"),
+#     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'cmp_embed_regen', "norm_describe"),
+#     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'cmp_embed_regen', "norm_cmp")
+# ]
+dataset_path = os.path.join('datasets', 'test', 'toy_from_direct_ct')
 response_dir_list = [
-    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'cmp_embed_regen', "norm_questions"),
-    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'cmp_embed_regen', "norm_scenarios"),
-    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'cmp_embed_regen', "norm_describe"),
-    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'anthropic', 'cmp_embed_regen', "norm_cmp")
+    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'chinese_lyrics', 'direct', "norm_questions_ct"),
+    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'chinese_lyrics', 'direct', "norm_scenarios_ct"),
+    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'chinese_lyrics', 'direct', "norm_describe_ct"),
+    os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'chinese_lyrics', 'direct', "norm_cmp_ct")
 ]
-
 
 
 def read_file(file_path):
@@ -69,9 +75,12 @@ for response_dir in response_dir_list:
 
     start = False
     for line in lines:
-        if "LLM RESPONSE" in line:
+        if "FINAL RESPONSE:" in line:
             start = True
             continue
+        if "ATTACK EVALUATION RESULTS:" in line:
+            break
+
         line = line.replace('\n', '')
         if start is True and len(line) > 0:
             all_results.append(line)
@@ -87,6 +96,9 @@ test_data["result_list"].append(all_results_embed)
 # for embed in all_results_embed:
 #     print(len(embed))
 # exit(0)
+
+print(test_data["result_list"])
+exit(0)
 
 dataset = Dataset.from_dict(test_data)
 dataset.save_to_disk(
