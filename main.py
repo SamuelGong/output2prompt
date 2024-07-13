@@ -131,9 +131,11 @@ dataset_dict = {
     'synthetic': ['datasets/train/synthetic_gpts', 'datasets/test/synthetic_gpts'],
     'real': [None, 'datasets/test/real_gpts_arrow'],
     'awesome': [None, 'datasets/test/awesomegpt_prompts'],
-    'toy_from_direct': [None, 'datasets/test/toy_from_direct'],  # Added by Zhifeng
-    'toy_from_cmp_embed_regen': [None, 'datasets/test/toy_from_cmp_embed_regen'],  # Added by Zhifeng
-    'toy_from_direct_ct': [None, 'datasets/test/toy_from_direct_ct']  # Added by Zhifeng
+    # Below are added by Zhifeng
+    'toy_from_direct': [None, 'datasets/test/toy_from_direct'],
+    'toy_from_cmp_embed_regen': [None, 'datasets/test/toy_from_cmp_embed_regen'],
+    'toy_from_direct_ct': [None, 'datasets/test/toy_from_direct_ct'],
+    'toy_from_direct_gemini': [None, 'datasets/test/toy_from_direct_gemini'],
 }
 
 inverters = {
