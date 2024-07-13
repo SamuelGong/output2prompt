@@ -26,12 +26,19 @@ ground_truth_system_prompt_path = os.path.join('..', 'system-prompt', 'system_pr
 #     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'chinese_lyrics', 'direct', "norm_describe_ct"),
 #     os.path.join('..', 'system-prompt', '1_gpt-35-turbo', 'chinese_lyrics', 'direct', "norm_cmp_ct")
 # ]
-dataset_path = os.path.join('datasets', 'test', 'toy_from_direct_gemini')
+# dataset_path = os.path.join('datasets', 'test', 'toy_from_direct_gemini')
+# response_dir_list = [
+#     os.path.join('..', 'system-prompt', '3_gemini-1.5-pro', 'anthropic', 'direct', "norm_questions"),
+#     os.path.join('..', 'system-prompt', '3_gemini-1.5-pro', 'anthropic', 'direct', "norm_scenarios"),
+#     os.path.join('..', 'system-prompt', '3_gemini-1.5-pro', 'anthropic', 'direct', "norm_describe"),
+#     os.path.join('..', 'system-prompt', '3_gemini-1.5-pro', 'anthropic', 'direct', "norm_cmp")
+# ]
+dataset_path = os.path.join('datasets', 'test', 'toy_from_cmp_embed_regen_gemini')
 response_dir_list = [
-    os.path.join('..', 'system-prompt', '3_gemini-1.5-pro', 'anthropic', 'direct', "norm_questions"),
-    os.path.join('..', 'system-prompt', '3_gemini-1.5-pro', 'anthropic', 'direct', "norm_scenarios"),
-    os.path.join('..', 'system-prompt', '3_gemini-1.5-pro', 'anthropic', 'direct', "norm_describe"),
-    os.path.join('..', 'system-prompt', '3_gemini-1.5-pro', 'anthropic', 'direct', "norm_cmp")
+    os.path.join('..', 'system-prompt', '3_gemini-1.5-pro', 'anthropic', 'cmp_embed_regen', "norm_questions"),
+    os.path.join('..', 'system-prompt', '3_gemini-1.5-pro', 'anthropic', 'cmp_embed_regen', "norm_scenarios"),
+    os.path.join('..', 'system-prompt', '3_gemini-1.5-pro', 'anthropic', 'cmp_embed_regen', "norm_describe"),
+    os.path.join('..', 'system-prompt', '3_gemini-1.5-pro', 'anthropic', 'cmp_embed_regen', "norm_cmp")
 ]
 
 

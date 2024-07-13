@@ -136,6 +136,7 @@ dataset_dict = {
     'toy_from_cmp_embed_regen': [None, 'datasets/test/toy_from_cmp_embed_regen'],
     'toy_from_direct_ct': [None, 'datasets/test/toy_from_direct_ct'],
     'toy_from_direct_gemini': [None, 'datasets/test/toy_from_direct_gemini'],
+    'toy_from_cmp_embed_regen_gemini': [None, 'datasets/test/toy_from_cmp_embed_regen_gemini'],
 }
 
 inverters = {
