@@ -531,7 +531,7 @@ Here are instructions from the user outlining your goals and how you should resp
         # )
 
         # Added by Zhifeng
-        print(decoded_preds[0])
+        # print(decoded_preds[0])
         temp_save_path = os.path.join(os.getcwd(), "temp.txt")
         with open(f"{temp_save_path}", "w") as fout:
             fout.write(decoded_preds[0])
