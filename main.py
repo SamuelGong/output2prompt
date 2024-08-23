@@ -108,7 +108,7 @@ def test(model_path, dataset_path):
     model.mode = mode
     tokenizer: T5Tokenizer = T5Tokenizer.from_pretrained('t5-base')
     eval_ds = load_from_disk(dataset_path)
-    eval_ds = eval_ds.select([0])  # Added by Zhifeng
+    # eval_ds = eval_ds.select([0])  # Added by Zhifeng
     trainer = Prompt2OutputTrainer(
         model=model,
         args=experiment.training_args,
