@@ -508,35 +508,43 @@ Here are instructions from the user outlining your goals and how you should resp
         decoded_preds = self.tokenizer.batch_decode(
             preds_sample_list, skip_special_tokens=True
         )
-        decoded_labels = self.tokenizer.batch_decode(
-            preds_sample_labels_list, skip_special_tokens=True
-        )
-        decoded_all_inputs = []
-        for inputs in all_inputs['input_ids'][:3]:
-            decoded_all_inputs.append(self.tokenizer.batch_decode(
-                inputs, skip_special_tokens=True
-            ))
-        bleu_result = self._text_comparison_metrics(
-            predictions_ids=preds_sample_list,
-            predictions_str=decoded_preds,
-            references_ids=preds_sample_labels_list,
-            references_str=decoded_labels,
-        )
-        # TODO: also log inputs here
-        self._log_preds_table(
-            table_key="val_text_preds",
-            decoded_preds=decoded_preds,
-            decoded_labels=decoded_labels,
-        )
-
-        if not len(decoded_preds):
-            return {}
-        print("[input]")
-        for decoded_inputs in decoded_all_inputs[0]:
-            print(decoded_inputs)
-        print("[pred]", decoded_preds[0])
-        print("[true]", decoded_labels[0])
+        # decoded_labels = self.tokenizer.batch_decode(
+        #     preds_sample_labels_list, skip_special_tokens=True
+        # )
+        # decoded_all_inputs = []
+        # for inputs in all_inputs['input_ids'][:3]:
+        #     decoded_all_inputs.append(self.tokenizer.batch_decode(
+        #         inputs, skip_special_tokens=True
+        #     ))
         # commented by Zhifeng
+        # bleu_result = self._text_comparison_metrics(
+        #     predictions_ids=preds_sample_list,
+        #     predictions_str=decoded_preds,
+        #     references_ids=preds_sample_labels_list,
+        #     references_str=decoded_labels,
+        # )
+        # # TODO: also log inputs here
+        # self._log_preds_table(
+        #     table_key="val_text_preds",
+        #     decoded_preds=decoded_preds,
+        #     decoded_labels=decoded_labels,
+        # )
+
+        # Added by Zhifeng
+        print(decoded_preds[0])
+        temp_save_path = os.path.join(os.getcwd(), "temp.txt")
+        with open(f"{temp_save_path}", "w") as fout:
+            fout.write(decoded_preds[0])
+        print(f"Reconstruction result by output2prompt saved to {temp_save_path}.")
+
+        # commented by Zhifeng
+        # if not len(decoded_preds):
+        #     return {}
+        # print("[input]")
+        # for decoded_inputs in decoded_all_inputs[0]:
+        #     print(decoded_inputs)
+        # print("[pred]", decoded_preds[0])
+        # print("[true]", decoded_labels[0])
         # print("\n\n")
         # print("[input]")
         # for decoded_inputs in decoded_all_inputs[1]:
@@ -550,105 +558,106 @@ Here are instructions from the user outlining your goals and how you should resp
         # print("[pred]", decoded_preds[2])
         # print("[true]", decoded_labels[2])
 
-        # Compute sims of eval data using embedder.
-        preds_sample = torch.tensor(preds_sample_list, device=self.args.device)[:128]
-        preds_sample_labels = torch.tensor(
-            preds_sample_labels_list, device=self.args.device
-        )[:128]
-
-        # Log num tokens.
-        num_tokens_metrics = {
-            "pred_num_tokens": (
-                (preds_sample != self.pad_token_id)
-                & (preds_sample != self.bos_token_id)
-            )
-            .sum(1)
-            .float()
-            .mean()
-            .item(),
-            "true_num_tokens": (
-                (preds_sample_labels != self.pad_token_id)
-                & (preds_sample_labels != self.bos_token_id)
-            )
-            .sum(1)
-            .float()
-            .mean()
-            .item(),
-        }
-
-        # Fix eos token on generated text.
-        # bos_token_id = self.embedder_tokenizer.pad_token_id
-        # assert (preds_sample[:, 0] == bos_token_id).all()
-        eos_token_id = self.embedder_tokenizer.eos_token_id
-        if eos_token_id is not None:
-            eos_tokens = (
-                torch.ones(
-                    (len(preds_sample), 1),
-                    dtype=torch.long,
-                    device=self.args.device,
-                )
-                * eos_token_id
-            )
-            preds_sample = torch.cat((preds_sample[:, 1:], eos_tokens), dim=1)
-            # assert preds_sample.shape == preds_sample_labels.shape
-
-        # try:
-        #     with torch.no_grad():
-        #         # self.inversion_trainer.model.noise_level = 0.0
-        #         preds_sample_retokenized = self.embedder_tokenizer(
-        #             decoded_preds,
-        #             padding=True,
-        #             truncation=False,
-        #             return_tensors="pt",
-        #         )["input_ids"].to(preds_sample.device)
-        #         preds_sample_retokenized = preds_sample_retokenized[
-        #             : self.args.per_device_eval_batch_size, :
-        #         ]
-        #         pad_token_id = self.pad_token_id
-        #         preds_emb = self.call_embedding_model(
-        #             input_ids=preds_sample_retokenized,
-        #             attention_mask=(preds_sample_retokenized != pad_token_id).to(
-        #                 self.args.device
-        #             ),
+        # # Compute sims of eval data using embedder.
+        # preds_sample = torch.tensor(preds_sample_list, device=self.args.device)[:128]
+        # preds_sample_labels = torch.tensor(
+        #     preds_sample_labels_list, device=self.args.device
+        # )[:128]
+        #
+        # # Log num tokens.
+        # num_tokens_metrics = {
+        #     "pred_num_tokens": (
+        #         (preds_sample != self.pad_token_id)
+        #         & (preds_sample != self.bos_token_id)
+        #     )
+        #     .sum(1)
+        #     .float()
+        #     .mean()
+        #     .item(),
+        #     "true_num_tokens": (
+        #         (preds_sample_labels != self.pad_token_id)
+        #         & (preds_sample_labels != self.bos_token_id)
+        #     )
+        #     .sum(1)
+        #     .float()
+        #     .mean()
+        #     .item(),
+        # }
+        #
+        # # Fix eos token on generated text.
+        # # bos_token_id = self.embedder_tokenizer.pad_token_id
+        # # assert (preds_sample[:, 0] == bos_token_id).all()
+        # eos_token_id = self.embedder_tokenizer.eos_token_id
+        # if eos_token_id is not None:
+        #     eos_tokens = (
+        #         torch.ones(
+        #             (len(preds_sample), 1),
+        #             dtype=torch.long,
+        #             device=self.args.device,
         #         )
-        #         preds_sample_labels_retokenized = self.embedder_tokenizer(
-        #             decoded_labels, padding=True, truncation=False, return_tensors="pt"
-        #         )["input_ids"].to(preds_sample.device)
-        #         preds_sample_labels_retokenized = preds_sample_labels_retokenized[
-        #             : self.args.per_device_eval_batch_size, :
-        #         ]
-        #         labels_emb = self.call_embedding_model(
-        #             input_ids=preds_sample_labels_retokenized,
-        #             attention_mask=(preds_sample_labels_retokenized != pad_token_id).to(
-        #                 self.args.device
-        #             ),
-        #         )
-        #         emb_cos_sims = torch.nn.CosineSimilarity(dim=1)(preds_emb, labels_emb)
-        #         emb_topk_equal = (
-        #             (preds_emb[:, :32000].argmax(1) == labels_emb[:, :32000].argmax(1))
-        #             .float()
-        #             .cpu()
-        #         )
-        #         sim_result = {
-        #             "emb_cos_sim": emb_cos_sims.mean().item(),
-        #             "emb_cos_sim_sem": sem(emb_cos_sims.cpu().numpy()),
-        #             "emb_top1_equal": emb_topk_equal.mean().item(),
-        #             "emb_top1_equal_sem": sem(emb_topk_equal),
-        #         }
-
-        # except (TypeError, RuntimeError,):
-        sim_result = {}
-        # sim_result = self.evaluate_system_prompts(decoded_preds, decoded_labels, all_inputs)
-        # sim_result = self.evaluate_kl_divergence(decoded_preds, decoded_labels, all_inputs)
-
-        # Store stuff for access later.
-        # self.preds_emb = preds_emb.cpu()
-        # self.labels_emb = labels_emb.cpu()
-        self.preds_sample_list = preds_sample_list
-        self.preds_sample_labels_list = preds_sample_labels_list
-
-        metrics = {**num_tokens_metrics, **bleu_result, **sim_result}
-        return metrics
+        #         * eos_token_id
+        #     )
+        #     preds_sample = torch.cat((preds_sample[:, 1:], eos_tokens), dim=1)
+        #     # assert preds_sample.shape == preds_sample_labels.shape
+        #
+        # # try:
+        # #     with torch.no_grad():
+        # #         # self.inversion_trainer.model.noise_level = 0.0
+        # #         preds_sample_retokenized = self.embedder_tokenizer(
+        # #             decoded_preds,
+        # #             padding=True,
+        # #             truncation=False,
+        # #             return_tensors="pt",
+        # #         )["input_ids"].to(preds_sample.device)
+        # #         preds_sample_retokenized = preds_sample_retokenized[
+        # #             : self.args.per_device_eval_batch_size, :
+        # #         ]
+        # #         pad_token_id = self.pad_token_id
+        # #         preds_emb = self.call_embedding_model(
+        # #             input_ids=preds_sample_retokenized,
+        # #             attention_mask=(preds_sample_retokenized != pad_token_id).to(
+        # #                 self.args.device
+        # #             ),
+        # #         )
+        # #         preds_sample_labels_retokenized = self.embedder_tokenizer(
+        # #             decoded_labels, padding=True, truncation=False, return_tensors="pt"
+        # #         )["input_ids"].to(preds_sample.device)
+        # #         preds_sample_labels_retokenized = preds_sample_labels_retokenized[
+        # #             : self.args.per_device_eval_batch_size, :
+        # #         ]
+        # #         labels_emb = self.call_embedding_model(
+        # #             input_ids=preds_sample_labels_retokenized,
+        # #             attention_mask=(preds_sample_labels_retokenized != pad_token_id).to(
+        # #                 self.args.device
+        # #             ),
+        # #         )
+        # #         emb_cos_sims = torch.nn.CosineSimilarity(dim=1)(preds_emb, labels_emb)
+        # #         emb_topk_equal = (
+        # #             (preds_emb[:, :32000].argmax(1) == labels_emb[:, :32000].argmax(1))
+        # #             .float()
+        # #             .cpu()
+        # #         )
+        # #         sim_result = {
+        # #             "emb_cos_sim": emb_cos_sims.mean().item(),
+        # #             "emb_cos_sim_sem": sem(emb_cos_sims.cpu().numpy()),
+        # #             "emb_top1_equal": emb_topk_equal.mean().item(),
+        # #             "emb_top1_equal_sem": sem(emb_topk_equal),
+        # #         }
+        #
+        # # except (TypeError, RuntimeError,):
+        # sim_result = {}
+        # # sim_result = self.evaluate_system_prompts(decoded_preds, decoded_labels, all_inputs)
+        # # sim_result = self.evaluate_kl_divergence(decoded_preds, decoded_labels, all_inputs)
+        #
+        # # Store stuff for access later.
+        # # self.preds_emb = preds_emb.cpu()
+        # # self.labels_emb = labels_emb.cpu()
+        # self.preds_sample_list = preds_sample_list
+        # self.preds_sample_labels_list = preds_sample_labels_list
+        #
+        # metrics = {**num_tokens_metrics, **bleu_result, **sim_result}
+        # return metrics
+        return {}
 
     def evaluation_loop(
         self, dataloader: torch.utils.data.DataLoader, *args, **kwargs
