@@ -8,6 +8,9 @@ import inspect
 from torch.nn import CrossEntropyLoss
 from vec2text.models.inversion_from_logits_emb import InversionFromLogitsEmbModel
 
+# Added by Zhifeng
+from transformers.generation.configuration_utils import GenerationConfig
+
 
 class T5SparseEncoder(T5ForConditionalGeneration):
     def my_encoder(self, input_ids, output_attentions=True):
@@ -172,8 +175,13 @@ class T5SparseEncoder(T5ForConditionalGeneration):
         )
     
 
+    # def _prepare_encoder_decoder_kwargs_for_generation(
+    #     self, inputs_tensor: torch.Tensor, model_kwargs, model_input_name: Optional[str] = None
+    # ) -> Dict[str, Any]:
+    # Modify by Zhifeng
     def _prepare_encoder_decoder_kwargs_for_generation(
-        self, inputs_tensor: torch.Tensor, model_kwargs, model_input_name: Optional[str] = None
+            self, inputs_tensor: torch.Tensor, model_kwargs, model_input_name: Optional[str],
+            generation_config: GenerationConfig,
     ) -> Dict[str, Any]:
         # 1. get encoder
         encoder = self.get_encoder()
@@ -198,6 +206,9 @@ class T5SparseEncoder(T5ForConditionalGeneration):
             encoder_kwargs = {
                 argument: value for argument, value in encoder_kwargs.items() if argument in encoder_signature
             }
+        # Added by Zhifeng
+        encoder_kwargs["output_attentions"] = generation_config.output_attentions
+        encoder_kwargs["output_hidden_states"] = generation_config.output_hidden_states
 
         # 3. make sure that encoder returns `ModelOutput`
         model_input_name = model_input_name if model_input_name is not None else self.main_input_name

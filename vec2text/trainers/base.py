@@ -262,7 +262,6 @@ Here are instructions from the user outlining your goals and how you should resp
         return sim_result
 
 
-
     def _get_decoded_sequences(
         self, dataloader: torch.utils.data.DataLoader, n: int
     ) -> Tuple[List[torch.Tensor], List[torch.Tensor]]:
