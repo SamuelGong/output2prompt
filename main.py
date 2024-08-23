@@ -97,7 +97,7 @@ def test(model_path, dataset_path):
     config_dict["warmup_steps"] = 0
     config = InversionConfig.from_dict(config_dict)
     mode = 'just_sparse'
-    print(mode)
+    # print(mode)
     name = f"train_prompt2output_{mode}"
     experiment: experiments.InversionFromOutputSparseExperiment = analyze_utils.load_experiment_from_config(
         name, config=config, use_less_data = -1
@@ -132,11 +132,11 @@ dataset_dict = {
     'real': [None, 'datasets/test/real_gpts_arrow'],
     'awesome': [None, 'datasets/test/awesomegpt_prompts'],
     # Below are added by Zhifeng
-    'toy_from_direct': [None, 'datasets/test/toy_from_direct'],
-    'toy_from_cmp_embed_regen': [None, 'datasets/test/toy_from_cmp_embed_regen'],
-    'toy_from_direct_ct': [None, 'datasets/test/toy_from_direct_ct'],
-    'toy_from_direct_gemini': [None, 'datasets/test/toy_from_direct_gemini'],
-    'toy_from_cmp_embed_regen_gemini': [None, 'datasets/test/toy_from_cmp_embed_regen_gemini'],
+    # 'toy_from_direct': [None, 'datasets/test/toy_from_direct'],
+    # 'toy_from_cmp_embed_regen': [None, 'datasets/test/toy_from_cmp_embed_regen'],
+    # 'toy_from_direct_ct': [None, 'datasets/test/toy_from_direct_ct'],
+    # 'toy_from_direct_gemini': [None, 'datasets/test/toy_from_direct_gemini'],
+    # 'toy_from_cmp_embed_regen_gemini': [None, 'datasets/test/toy_from_cmp_embed_regen_gemini'],
 }
 
 inverters = {
@@ -148,13 +148,16 @@ if __name__ == '__main__':
     start_time = time.perf_counter()
     mode = sys.argv[1]
     model = sys.argv[2]
-    dataset = sys.argv[3]
+    # dataset = sys.argv[3]
+    path_to_dataset = sys.argv[3]
     if mode == 'train':
-        train(dataset_dict[dataset][0])
+        # train(dataset_dict[dataset][0])
+        pass
     else:
-        test(inverters[model], dataset_dict[dataset][1])
+        # test(inverters[model], dataset_dict[dataset][1])
+        test(inverters[model], path_to_dataset)  # added by Zhifeng
     end_time = time.perf_counter()
     duration = end_time - start_time
-    print(f"Done in {round(duration, 2)} seconds.")
+    print(f"output2prompt Done in {round(duration, 2)} seconds.")
     # one test sample takes around 41.4 seconds (old MacBook)
     # and it takes around 63.16 seconds (new MacBook)
